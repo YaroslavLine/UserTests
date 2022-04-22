@@ -1,0 +1,27 @@
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="container">
+    <div class="d-flex justify-content-start">
+        <form asp-controller="Account" asp-action="Login" method="post" class="m-3">
+            <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl">
+            <div class="pt-3">
+                <label for="email" class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" id="email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="pt-3">
+                <label for="pass" class="form-label">Password</label>
+                <input asp-for="Password" class="form-control" id="pass">
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="pt-3 d-flex">
+                <div class="flex-fill btn-group">
+                    <button type="submit" class="btn btn-success">Sign In</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div asp-validation-summary="ModelOnly" class="text-danger d-flex justify-content-start p-3"></div>
+</div>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" asp-href-include="/lib/bootstrap/css/*.min.css" asp-href-exclude="**/*-reboot*,**/*rtl*">
+    <title>@ViewBag.Title</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a asp-action="Index" asp-controller="Home" class="navbar-brand ms-3">Your Testing</a>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-2">
+                @if (User?.Identity?.IsAuthenticated ?? false)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-secondary text-white" asp-action="Logout"
+                        asp-controller="Account">Logout</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+        <div>
+            @RenderBody()
+        </div>
+    </header>
+    <nav class="navbar fixed-bottom navbar-dark bg-dark">
+        <div class="container-fluid  justify-content-center">
+            <p class="text-white">Test your English. Apr. 2022</p>
+        </div>
+    </nav>
+    @await RenderSectionAsync("scripts", false)
+</body>
+
+</html>

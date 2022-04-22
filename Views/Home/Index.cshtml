@@ -1,0 +1,12 @@
+@model IEnumerable<Test>
+@{
+    ViewData["Title"] = "Test List";
+}
+<div class="row p-0 m-0">
+    @foreach (Test t in Model)
+    {
+        <div class="col-2 d-flex align-items-stretch">
+            @await Html.PartialAsync("_TestCard", t)
+        </div>
+    }
+</div>

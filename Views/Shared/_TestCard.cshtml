@@ -1,0 +1,9 @@
+@model Test
+<div class="card m-3">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Title</h5>
+        <p class="card-text mt-4">@Model.Description</p>
+        <a class="btn btn-primary form-control" type="Submit" asp-action="SelectTest" asp-route-testId="@Model.Id">Start
+            Test</a>
+    </div>
+</div>
